@@ -27,7 +27,7 @@ html,body {
   height: 100%;
 
   background-color: #333;
-  background: url('/img/freedom_4958x3008.jpg') no-repeat center center fixed; 
+  background: url('/img/freedom_4958x3008.jpg') center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -36,12 +36,8 @@ html,body {
   color: white;
 }
 
-div.inner {
+div.site-wrapper {
   background-color: rgba(0,0,0,.9);
-  border-style: solid;
-  border-width: 2px; 
-  border-color: orange;
-  border-radius: 6px;
 }
 
 h1, h3, h5, p, dl {
@@ -192,5 +188,9 @@ h1, h3, h5, p.lead {
     border-width: 2px; 
     border-color: orange;
     border-radius: 6px;
+    background-color: rgba(0,0,0,0.9);
+  }
+  div.site-wrapper {
+    background-color: transparent;
   }
 }
