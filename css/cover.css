@@ -27,11 +27,6 @@ html,body {
   height: 100%;
 
   background-color: #333;
-  background: url('/img/freedom_4958x3008.jpg') center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 
   color: white;
 }
@@ -192,5 +187,12 @@ h1, h3, h5, p.lead {
   }
   div.site-wrapper {
     background-color: transparent;
+  }
+  html, body {
+    background: url('/img/freedom_4958x3008.jpg') center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 }
