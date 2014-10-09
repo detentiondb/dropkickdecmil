@@ -53,6 +53,30 @@ h1, h3, h5, p.lead {
   display: inline;
 }
 
+.red-text {
+  color: #b00;
+}
+
+label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize:vertical;
+}
+
+img.activity-thumbnail 
+{
+  padding-left: 10px;
+  width: 220px;
+}
+
+.headline
+{
+	font-weight: normal;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
@@ -179,6 +203,7 @@ h1, h3, h5, p.lead {
     width: 700px;
   }
   div.inner {
+    margin: 20px;	  
     border-style: solid;
     border-width: 2px; 
     border-color: orange;
