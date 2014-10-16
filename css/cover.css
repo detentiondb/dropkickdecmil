@@ -35,13 +35,17 @@ div.site-wrapper {
   background-color: rgba(0,0,0,.9);
 }
 
-h1, h3, h5, p, dl {
+h1, h3, h5 {
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 h1 {
-  font-size: 400%;
+  font-size: 600%;
+}
+
+dt, dd {
+  font-size: 200%;
 }
 
 h1, h3, h5, p.lead {
@@ -54,7 +58,7 @@ h1, h3, h5, p.lead {
 }
 
 .red-text {
-  color: #b00;
+  color: #7dc476;
 }
 
 label {
@@ -68,8 +72,12 @@ textarea {
 
 img.activity-thumbnail 
 {
+  display: block;
+  width: auto; 
+  height: auto; 
+  max-width: 100%; 
+  max-height: 100%;
   padding-left: 10px;
-  width: 220px;
 }
 
 .headline
@@ -97,9 +105,15 @@ img.activity-thumbnail
 
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+  position: relative;
+  padding: 10px;
+  height: 100%;
 }
 
+.col-lg-6 
+{
+  height: 100%;
+}
 
 /*
  * Header
@@ -197,18 +211,21 @@ img.activity-thumbnail
 }
 
 @media (min-width: 992px) {
-  .masthead,
+  /*.masthead,
   .mastfoot,
   .cover-container {
     width: 700px;
-  }
+  }*/
   div.inner {
-    margin: 20px;	  
+    margin-bottom: 10px;	  
+    margin-top: 10px;	  
     border-style: solid;
-    border-width: 2px; 
+    border-width: 1px; 
     border-color: orange;
-    border-radius: 6px;
+    border-radius: 4px;
+    /* background-color: rgba(255,255,255,0.8); */
     background-color: rgba(0,0,0,0.9);
+    color: white;
   }
   div.site-wrapper {
     background-color: transparent;
