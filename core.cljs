@@ -19,16 +19,15 @@
                         :description "A chance for adults and kids alike to let their artistic side shine through. Get involved in bringing art and activism together, a pro-refugee creative workshop for young and old. Amplify your voice and the refugee rights message."}
                        {:heading "Mythbusting circle" 
                         :description "There are many false perceptions about asylum seekers and refugees in the Australian community. The Mythbusting Circle will be an opportunity for attendees of the event to sit with refugee advocates and refugees in a non-judgmental environment to ask questions about refugees to learn more about the issues they face in country of origin, their refugee journey and detention in Australia."}
-                        ;:image-uri "/img/drumming.jpg"}
-                       {:heading "Australia's dark rift"
-                        :subheading "Refugee policy and practice since 1992"
-                        :description "An overview of the political motivations which have driven policy toward asylum seekers since the introduction of mandatory detention in 1992. We will also discuss how policy and laws have deliberately created a rift in Australian society and human rights practices. We will conclude by proposing ways in which this rift may be repaired and provide you with the tools and imagination to become agents for social and political change."}
-                       {:heading "Media skills workshop" 
-                        :subheading "Tricks of the trade from an experienced journalist"
-                        :description "What makes a good story? Questions journalists ask; catching the media wave; interview skills; rules of the game. What not to do and how to use social media to amplify your message."}
                        {:heading "Tamil food corner" 
                         :description 
                         "Promoting Tamil food, sharing interesting facts about Tamil culture, educate visitors on the ongoing struggle of minority Tamils in Sri Lanka and creating awareness about minority struggles around the world."}
+                       {:heading "Media skills workshop" 
+                        :subheading "Tricks of the trade from an experienced journalist"
+                        :description "What makes a good story? Questions journalists ask; catching the media wave; interview skills; rules of the game. What not to do and how to use social media to amplify your message."}
+                       {:heading "Australia's dark rift"
+                        :subheading "Refugee policy and practice since 1992"
+                        :description "An overview of the political motivations which have driven policy toward asylum seekers since the introduction of mandatory detention in 1992. We will also discuss how policy and laws have deliberately created a rift in Australian society and human rights practices. We will conclude by proposing ways in which this rift may be repaired and provide you with the tools and imagination to become agents for social and political change."}
                        {:heading "Lawn bowls" 
                         :description 
                         "Soak up the Freo atmosphere as you compete to relax on the greens."}
