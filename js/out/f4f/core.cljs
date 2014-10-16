@@ -31,7 +31,7 @@
                        {:heading "Lawn bowls" 
                         :description 
                         "Soak up the Freo atmosphere as you compete to relax on the greens."}
-                        ;:image-uri "/img/koththu.jpg"}
+                       ;:image-uri "/img/koththu.jpg"}
                        ]
                       :evening
                       [{:heading "Rev. Chris Bedding"}
@@ -82,7 +82,7 @@
               (when (not (nil? (:subheading activity)))
                 [:h4 [:span (:subheading activity)]])
               (when (not (nil? (:image-uri activity)))
-                 [:img.pull-right.activity-thumbnail {:src (:image-uri activity)}])
+                [:img.pull-right.activity-thumbnail {:src (:image-uri activity)}])
               (when (not (nil? (:description activity))) [:p (:description activity)])]]))))
 
 (defn vote-button-id [unique-id]
@@ -151,85 +151,91 @@
               [:div.row
                [:div.inner.cover
                 [:h1 [:span.orange-text "#freo4freedom"]]
-                [:h3 "an event by " [:a {:href "https://www.facebook.com/RRANFremantle" :target "_blank"} 
-                                     "Fremantle Refugee Rights Action Network"]]
-                [:h3 "part of the " [:a {:href "https://www.facebook.com/fremantlefestival" :target "_blank"} 
-                                     "Fremantle Festival"]]
-                [:h3.lead "on Sunday November 2 at North Fremantle Bowling Club."]
-                [:div {:style {:align "center"}}
-                 [:dl.dl-horizontal
-                  [:dt "2PM"]
-                  [:dd "food, workshops, collaboration, lawn bowls, music"]
-                  [:dt "6:30PM"]
-                  [:dd "music, comedy performances and speakers"]]]
-                [:p [:h4.headline "Join us for an afternoon of social education and collaboration, leading into an evening of insightful comedy and inspiring music as we come together to build a creative local movement for social and political change."]]
-                [:p [:h4.headline "The #freo4freedom event is dedicated to promoting the cause of refugee rights in Australia. We're working towards the end of mandatory detention and offshore processing of asylum seekers."]]
-                [:div.row
-                 [:div.col-lg-6
-                  [:h2.red-text "#freo4freedom » afternoon"] 
-                  [:h4 "Pro-refugee workshops, meetings and activities conducted in a positive, family friendly environment. See below for what's in store!"]]
-                 [:div.col-lg-6
-                  [:h2.red-text "#freo4freedom » evening"]
-                  [:h4 "Performances from Fremantle and Perth musicians in support of refugee rights, pro-refugee speakers and stand-up comedy."]]]
-                [:div.row
-                 [:div.col-lg-12 [:h4 [:span.orange-text "no crime to seek asylum"] [:span.pull-right "Email " [:a {:href "mailto:freo@rran.org"} "Freo RRAN " [:span.glyphicon.glyphicon-envelope]] " • Join " [:a {:href "https://www.facebook.com/events/944366122246547/"} "#freo4freedom on Facebook " [:img {:style {:height "20px" :vertical-align "baseline"} :src "/img/fblogo.png"}]]]]]]
-                ]]]]))))
+                [:p.lead "an event by " [:a {:href "https://www.facebook.com/RRANFremantle" :target "_blank"} 
+                                         "Fremantle Refugee Rights Action Network"]
+                 [:br]
+                 "part of the " [:a {:href "https://www.facebook.com/fremantlefestival" :target "_blank"} 
+                                 "Fremantle Festival"]]
+                 [:p.lead 
+                  "Sunday, November 2"
+                  [:br]
+                  "North Fremantle Bowling Club"
+                  [:br]
+                  "40 Stirling Highway, North Fremantle"]
+                 [:div {:style {:align "center"}}
+                  [:dl.dl-horizontal
+                   [:dt "2PM"]
+                   [:dd "food, workshops, collaboration, lawn bowls, music"]
+                   [:dt "6:30PM"]
+                   [:dd "music, comedy performances and speakers"]]]
+                 [:p [:h4.headline "Join us for an afternoon of social education and collaboration, leading into an evening of insightful comedy and inspiring music as we come together to build a creative local movement for social and political change."]]
+                 [:p [:h4.headline "The #freo4freedom event is dedicated to promoting the cause of refugee rights in Australia. We're working towards the end of mandatory detention and offshore processing of asylum seekers."]]
+                 [:div.row
+                  [:div.col-lg-6
+                   [:h2.red-text "#freo4freedom » afternoon"] 
+                   [:h4 "Pro-refugee workshops, meetings and activities conducted in a positive, family friendly environment. See below for what's in store!"]]
+                  [:div.col-lg-6
+                   [:h2.red-text "#freo4freedom » evening"]
+                   [:h4 "Performances from Fremantle and Perth musicians in support of refugee rights, pro-refugee speakers and stand-up comedy."]]]
+                 [:div.row
+                  [:div.col-lg-12 [:h4 [:span.orange-text "no crime to seek asylum"] [:span.pull-right "Email " [:a {:href "mailto:freo@rran.org"} "Freo RRAN " [:span.glyphicon.glyphicon-envelope]] " • Join " [:a {:href "https://www.facebook.com/events/944366122246547/"} "#freo4freedom on Facebook " [:img {:style {:height "20px" :vertical-align "baseline"} :src "/img/fblogo.png"}]]]]]]
+                 ]]]]))))
 
-(defn get-value [id]
-  (.-value (.getElementById js/document id)))
+             (defn get-value [id]
+               (.-value (.getElementById js/document id)))
 
-(defn submit-pitch [_ _ _ _]
-  (let [r (pani/root firebase-app-url)
-        p {:heading (get-value "pitch-heading")
-           :description (get-value "pitch-description")
-           :email (get-value "pitch-email")
-           :groupname (get-value "pitch-groupname")
-           :approved true
-           :likes 0
-           :uuid (str (uuid/make-random))}
-        new-pitches (conj (:pitches @app-state) p)]
-    (println new-pitches)
-    (pani/set! r :pitches new-pitches)
-    (swap! app-state assoc :pitching false)))
+             (defn submit-pitch [_ _ _ _]
+               (let [r (pani/root firebase-app-url)
+                     p {:heading (get-value "pitch-heading")
+                        :description (get-value "pitch-description")
+                        :email (get-value "pitch-email")
+                        :groupname (get-value "pitch-groupname")
+                        :approved true
+                        :likes 0
+                        :uuid (str (uuid/make-random))}
+                     new-pitches (conj (:pitches @app-state) p)]
+                 (println new-pitches)
+                 (pani/set! r :pitches new-pitches)
+                 (swap! app-state assoc :pitching false)))
 
-(defn pitch-form [app owner]
-  (reify
-    om/IRender
-    (render [_]
-      (html [:div.site-wrapper-inner
-             [:div.cover-container
-              [:div.inner.cover
-               [:h1 [:span.orange-text "#freo4freedom"]]
-               [:form
-                [:div.form-group
-                 [:label {:for "pitch-heading"} [:h3.orange-text "Give your idea a name!"]]
-                 [:input#pitch-heading.form-control {:type "text" :placeholder "My plan to support refugee rights"}]
-                 [:label {:for "pitch-groupname"} [:h3.orange-text "Who are you?"]]
-                 [:input#pitch-groupname.form-control {:type "text" :placeholder "My name or my group's name"}]
-                 [:label {:for "pitch-email"} [:h3.orange-text "What's your email address?"]]
-                 [:input#pitch-email.form-control {:type "text" :placeholder "Email (required — won't be published)"}]
-                 [:label {:for "pitch-description"} [:h3.orange-text "Describe your project"]]
-                 [:textarea#pitch-description.form-control {:rows 15 :type "text" :placeholder "Who, where, what, when and how?"}]]
-                [:button.btn.btn-primary {:type "submit" :on-click submit-pitch} [:h3 "Tell us about it »"]]]]]]))))
+             (defn pitch-form [app owner]
+               (reify
+                 om/IRender
+                 (render [_]
+                   (html [:div.site-wrapper-inner
+                          [:div.cover-container
+                           [:div.inner.cover
+                            [:h1 [:span.orange-text "#freo4freedom"]]
+                            [:form
+                             [:div.form-group
+                              [:label {:for "pitch-heading"} [:h3.orange-text "Give your idea a name!"]]
+                              [:input#pitch-heading.form-control {:type "text" :placeholder "My plan to support refugee rights"}]
+                              [:label {:for "pitch-groupname"} [:h3.orange-text "Who are you?"]]
+                              [:input#pitch-groupname.form-control {:type "text" :placeholder "My name or my group's name"}]
+                              [:label {:for "pitch-email"} [:h3.orange-text "What's your email address?"]]
+                              [:input#pitch-email.form-control {:type "text" :placeholder "Email (required — won't be published)"}]
+                              [:label {:for "pitch-description"} [:h3.orange-text "Describe your project"]]
+                              [:textarea#pitch-description.form-control {:rows 15 :type "text" :placeholder "Who, where, what, when and how?"}]]
+                             [:button.btn.btn-primary {:type "submit" :on-click submit-pitch} [:h3 "Tell us about it »"]]]]]]))))
 
-(defn focus-view [app owner]
-  (reify
-    om/IRender
-    (render [_]
-      (if (:pitching app)
-        (om/build pitch-form app)
-        (om/build event-view app)))))
+             (defn focus-view [app owner]
+               (reify
+                 om/IRender
+                 (render [_]
+                   (if (:pitching app)
+                     (om/build pitch-form app)
+                     (om/build event-view app)))))
 
-(om/root focus-view app-state
-         {:target (.getElementById js/document "focus")})
+             (om/root focus-view app-state
+                      {:target (.getElementById js/document "focus")})
 
-(om/root afternoon-view app-state
-         {:target (.getElementById js/document "afternoon")})
+             (om/root afternoon-view app-state
+                      {:target (.getElementById js/document "afternoon")})
 
-(om/root evening-view app-state
-         {:target (.getElementById js/document "evening")})
+             (om/root evening-view app-state
+                      {:target (.getElementById js/document "evening")})
 
-#_(om/root pitches-view app-state
-         {:target (.getElementById js/document "pitches")})
+             #_(om/root pitches-view app-state
+                        {:target (.getElementById js/document "pitches")})
 
 
