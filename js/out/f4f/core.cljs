@@ -144,7 +144,7 @@
   (reify
     om/IRender
     (render [_]
-      (html [:div.container.event
+      (html [:div.row.event
              [:div [:h2 "music • food • lawn bowls • workshops" [:span.hidden-md.hidden-sm.hidden-xs.pull-right "from 2PM"]]]
              (om/build-all activity-view (map #(assoc %1 :colour %2) 
                                               (:afternoon app)
