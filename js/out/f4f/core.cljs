@@ -16,21 +16,30 @@
                       :afternoon
                       [{:heading "Artists for Refugees"
                         :subheading "Craft a pro-refugee piece"
-                        :description "A chance for adults and kids alike to let their artistic side shine through. Get involved in bringing art and activism together, a pro-refugee creative workshop for young and old. Amplify your voice and the refugee rights message."}
-                       {:heading "Mythbusting circle" 
-                        :description "There are many false perceptions about asylum seekers and refugees in the Australian community. The Mythbusting Circle will be an opportunity for attendees of the event to sit with refugee advocates and refugees in a non-judgmental environment to ask questions about refugees to learn more about the issues they face in country of origin, their refugee journey and detention in Australia."}
-                       {:heading "Tamil food corner" 
+                        :description "A chance for adults and kids alike to let their artistic side shine through. Get involved in bringing art and activism together, a pro-refugee creative workshop for young and old. Amplify your voice and the refugee rights message we're building for RRAN's involvement in the Fremantle Festival Parade."}
+                       {:heading "Mythbusting circle"
+                        :subheading "Breaking down false beliefs" 
+                        :description "There are many false perceptions about asylum seekers and refugees in the Australian community. The mythbusting circle provides an opportunity for attendees of Freo4Freedom to sit with refugee advocates and refugees in a non-judgmental environment, asking questions about refugees to learn more about the issues they face in country of origin, their refugee journey and detention in Australia."}
+                       {:heading "Tamil food corner"
+                        :subheading "Tamil culture, food and flavours" 
                         :description 
                         "Promoting Tamil food, sharing interesting facts about Tamil culture, educate visitors on the ongoing struggle of minority Tamils in Sri Lanka and creating awareness about minority struggles around the world."}
                        {:heading "Media skills workshop" 
-                        :subheading "Tricks of the trade from an experienced journalist"
+                        :subheading "Tricks of the trade from a professional"
                         :description "What makes a good story? Questions journalists ask; catching the media wave; interview skills; rules of the game. What not to do and how to use social media to amplify your message."}
                        {:heading "Australia's dark rift"
                         :subheading "Refugee policy and practice since 1992"
                         :description "An overview of the political motivations which have driven policy toward asylum seekers since the introduction of mandatory detention in 1992. We will also discuss how policy and laws have deliberately created a rift in Australian society and human rights practices. We will conclude by proposing ways in which this rift may be repaired and provide you with the tools and imagination to become agents for social and political change."}
                        {:heading "Lawn bowls" 
+                        ;:subheading "Send one down for refugee rights" 
                         :description 
-                        "Soak up the Freo atmosphere as you compete to relax on the greens."}
+                        "Soak up the Freo festival atmosphere while you compete to relax on the bowling club greens in the friendliest of friendly competitions. Don't forget to bring a hat!"}
+                       {:heading "Bar open • Food and drink" 
+                        :description 
+                        "Snacks, drinks and sweets to tickle your tastebuds from local vendors, and a full bar open inside the North Fremantle Bowling Club."}
+                       {:heading "Hazara shisha corner" 
+                        :description 
+                        "Enjoy the flavour of authentic shisha for a gold coin donation."}
                        ;:image-uri "/img/koththu.jpg"}
                        ]
                       :evening
@@ -38,7 +47,9 @@
                        {:heading "Joe Pule"}
                        {:heading "Shyam & Murtaza"}
                        {:heading "Paul Gioia & Bill Lawrie"}
-                       {:heading "Yara Neto"}]
+                       {:heading "Yara Neto"
+                        #_{:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus, nisl venenatis maximus varius, felis dolor tempus arcu, in lobortis ipsum nulla sit amet nibh. Etiam nulla ligula, gravida id tristique id, vehicula et eros. Donec et tristique nibh."
+                        :image-uri "/img/yaraneto.jpg"}}]
                       :colours  
                       (into [] 
                             (shuffle [
@@ -68,14 +79,34 @@
 
 ; DO NOT uncomment this once there's valid data in Firebase
 
-(init-firebase!)
+#_(init-firebase!)
 
 (defn activity-view [activity owner]
   (reify
     om/IRender
     (render [_]
+      (html [:div.col-lg-6.artist
+             [:div.row.artist-header 
+              {:style {;:z-index "-1"
+                       ;:background-image (str "url(" (:image-uri activity)")")
+                       :background-color ((:colour activity) 0)
+                       :color ((:colour activity) 1)}}
+              [:h2.item-headline.pull-right (:heading activity)]
+              [:br]
+              (when (not (nil? (:subheading activity)))
+                [:h4.item-headline.pull-right [:span (:subheading activity)]])
+              #_(when (not (nil? (:image-uri activity)))
+                [:img.pull-right.activity-thumbnail {:src (:image-uri activity)}])]
+              (when (not (nil? (:description activity))) 
+                [:div.artist-text.event-text [:p (:description activity)]]
+                )]))))
+
+#_(defn activity-view [activity owner]
+  (reify
+    om/IRender
+    (render [_]
       (html [:div.col-lg-6
-             [:div.inner 
+             [:div.event 
               {:style {:background-color ((:colour activity) 0)
                        :color ((:colour activity) 1)}}
               [:h2 (:heading activity)]
@@ -113,7 +144,7 @@
   (reify
     om/IRender
     (render [_]
-      (html [:div.row.inner
+      (html [:div.container.event
              [:div [:h2 "music • food • lawn bowls • workshops" [:span.hidden-md.hidden-sm.hidden-xs.pull-right "from 2PM"]]]
              (om/build-all activity-view (map #(assoc %1 :colour %2) 
                                               (:afternoon app)
@@ -123,7 +154,7 @@
   (reify
     om/IRender
     (render [_]
-      (html [:div.row.inner
+      (html [:div.row.event
              [:div [:h2 "hiphop freestyle • music • comedy show" [:span.hidden-md.hidden-sm.hidden-xs.pull-right "from 6:30PM"]]]
              (om/build-all activity-view (map #(assoc %1 :colour %2) 
                                               (:evening app)
@@ -149,19 +180,21 @@
       (html [:div.container
              [:div.site-wrapper-inner
               [:div.row
-               [:div.inner.cover
+               [:div.event.cover
                 [:h1 [:span.orange-text "#freo4freedom"]]
                 [:p.lead "an event by " [:a {:href "https://www.facebook.com/RRANFremantle" :target "_blank"} 
                                          "Fremantle Refugee Rights Action Network"]
                  [:br]
                  "part of the " [:a {:href "https://www.facebook.com/fremantlefestival" :target "_blank"} 
                                  "Fremantle Festival"]]
-                 [:p.lead 
+                 [:h1.lead {:style {:font-size "200%"}}
                   "Sunday, November 2"
                   [:br]
                   "North Fremantle Bowling Club"
                   [:br]
-                  "40 Stirling Highway, North Fremantle"]
+                  "40 Stirling Highway, North Fremantle"
+                  [:br]
+                  [:b "ENTRY BY DONATION"]]
                  [:div {:style {:align "center"}}
                   [:dl.dl-horizontal
                    [:dt "2PM"]
@@ -176,7 +209,7 @@
                    [:h4 "Pro-refugee workshops, meetings and activities conducted in a positive, family friendly environment. See below for what's in store!"]]
                   [:div.col-lg-6
                    [:h2.red-text "#freo4freedom » evening"]
-                   [:h4 "Performances from Fremantle and Perth musicians in support of refugee rights, pro-refugee speakers and stand-up comedy."]]]
+                   [:h4 "Performances from Fremantle and Perth musicians in support of refugee rights, along with pro-refugee speakers and stand-up comedy."]]]
                  [:div.row
                   [:div.col-lg-12 [:h4 [:span.orange-text "no crime to seek asylum"] [:span.pull-right "Email " [:a {:href "mailto:freo@rran.org"} "Freo RRAN " [:span.glyphicon.glyphicon-envelope]] " • Join " [:a {:href "https://www.facebook.com/events/944366122246547/"} "#freo4freedom on Facebook " [:img {:style {:height "20px" :vertical-align "baseline"} :src "/img/fblogo.png"}]]]]]]
                  ]]]]))))

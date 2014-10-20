@@ -77,12 +77,12 @@ img.activity-thumbnail
   height: auto; 
   max-width: 100%; 
   max-height: 100%;
-  padding-left: 10px;
+  /*padding-left: 10px;*/
 }
 
 .headline
 {
-	font-weight: normal;
+  font-weight: normal;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -104,7 +104,7 @@ img.activity-thumbnail
 }
 
 /* Padding for spacing */
-.inner {
+.event {
   position: relative;
   padding: 10px;
   height: 100%;
@@ -114,52 +114,6 @@ img.activity-thumbnail
 {
   height: 100%;
 }
-
-/*
- * Header
- */
-.masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.masthead-nav > li {
-  display: inline-block;
-}
-.masthead-nav > li + li {
-  margin-left: 20px;
-}
-.masthead-nav > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff; /* IE8 proofing */
-  color: rgba(255,255,255,.75);
-  border-bottom: 2px solid transparent;
-}
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-  background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
-}
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
-}
-
 
 /*
  * Cover
@@ -175,16 +129,6 @@ img.activity-thumbnail
 
 
 /*
- * Footer
- */
-
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
-}
-
-
-/*
  * Affix and center
  */
 
@@ -193,48 +137,74 @@ img.activity-thumbnail
   .masthead {
     position: fixed;
     top: 0;
-  }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
-  }
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
+}
+.mastfoot {
+  position: fixed;
+  bottom: 0;
+}
+/* Start the vertical centering */
+.site-wrapper-inner {
+  vertical-align: middle;
+}
+/* Handle the widths */
+.masthead,
+.mastfoot,
+.cover-container {
+  width: 100%; /* Must be percentage or pixels for horizontal alignment */
+}
+}
+
+div.artist {
+  margin-bottom: 10px; 
+}
+
+div.artist-header {
+  margin-left: 0px;
+  margin-right: 10px;
+  padding: 5px; 
+  min-height: 80px; 
+  width: 100%; 
+  overflow: hidden;
+  z-index: -1; 
+  border-style: none; 
+  border-radius: 15px; 
+}
+
+div.artist-text {
+  padding: 5px; 
+  margin: 0px 20px 0px 20px; 
+}
+
+div.event-text {
+  min-height: 150px;
+}
+
+.item-headline {
+  margin-top: 0px;
+  margin-bottom: 3px; 
+  text-transform: uppercase; 
 }
 
 @media (min-width: 992px) {
-  /*.masthead,
-  .mastfoot,
-  .cover-container {
-    width: 700px;
-  }*/
-  div.inner {
+  div.event {
     margin-bottom: 10px;	  
     margin-top: 10px;	  
     border-style: solid;
-    border-width: 1px; 
+    border-width: 2px; 
     border-color: orange;
-    border-radius: 4px;
-    /* background-color: rgba(255,255,255,0.8); */
+    border-radius: 15px;
     background-color: rgba(0,0,0,0.9);
     color: white;
-  }
-  div.site-wrapper {
-    background-color: transparent;
-  }
-  html, body {
-    background: url('/img/freedom_4958x3008.jpg') center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+}
+
+div.site-wrapper {
+  background-color: transparent;
+}
+html, body {
+  background: url('/img/freedom_4958x3008.jpg') center center fixed; 
+  -webkit-background-size: cover; 
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 }
