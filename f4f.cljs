@@ -1,4 +1,4 @@
-(ns f4f.core
+(ns f4f
   (:require-macros [cljs.core.async.macros :refer [go-loop]])
   (:require [pani.cljs.core :as pani]
             [cljs.core.async :refer [<!]]

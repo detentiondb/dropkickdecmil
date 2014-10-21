@@ -17,4 +17,4 @@ goog.addDependency("../sablono/interpreter.js", ['sablono.interpreter'], ['sablo
 goog.addDependency("../clojure/walk.js", ['clojure.walk'], ['cljs.core']);
 goog.addDependency("../sablono/core.js", ['sablono.core'], ['goog.dom', 'sablono.util', 'cljs.core', 'sablono.interpreter', 'clojure.string', 'clojure.walk']);
 goog.addDependency("../om/core.js", ['om.core'], ['cljs.core', 'om.dom', 'goog.ui.IdGenerator']);
-goog.addDependency("../f4f/core.js", ['f4f.core'], ['cljs.core', 'om.dom', 'cljs_uuid.core', 'pani.cljs.core', 'cljs.core.async', 'sablono.core', 'om.core']);
+goog.addDependency("../f4f.js", ['f4f'], ['cljs.core', 'om.dom', 'cljs_uuid.core', 'pani.cljs.core', 'cljs.core.async', 'sablono.core', 'om.core']);
