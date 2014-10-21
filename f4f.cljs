@@ -194,7 +194,7 @@
                   [:br]
                   "40 Stirling Highway, North Fremantle"
                   [:br]
-                  [:b "ENTRY BY DONATION"]]
+                  [:span.orange-text "afternoon free • evening entry by donation"]]
                  [:div {:style {:align "center"}}
                   [:dl.dl-horizontal
                    [:dt "2PM"]
