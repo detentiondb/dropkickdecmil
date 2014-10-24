@@ -45,7 +45,7 @@
                       :evening
                       [{:heading "Rev. Chris Bedding"}
                        {:heading "Joe Pule"}
-                       {:heading "Shyam & Murtaza"}
+                       ;{:heading "Shyam & Murtaza"}
                        {:heading "Paul Gioia & Bill Lawrie"}
                        {:heading "Yara Neto"
                         #_{:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus, nisl venenatis maximus varius, felis dolor tempus arcu, in lobortis ipsum nulla sit amet nibh. Etiam nulla ligula, gravida id tristique id, vehicula et eros. Donec et tristique nibh."
@@ -180,7 +180,7 @@
       (html [:div.container
              [:div.site-wrapper-inner
               [:div.row
-               [:div.event.cover
+               [:div.event
                 [:h1 [:span.orange-text "#freo4freedom"]]
                 [:p.lead "an event by " [:a {:href "https://www.facebook.com/RRANFremantle" :target "_blank"} 
                                          "Fremantle Refugee Rights Action Network"]
