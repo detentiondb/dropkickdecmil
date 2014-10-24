@@ -180,7 +180,7 @@
       (html [:div.container
              [:div.site-wrapper-inner
               [:div.row
-               [:div.event.cover
+               [:div.event
                 [:h1 [:span.orange-text "#freo4freedom"]]
                 [:p.lead "an event by " [:a {:href "https://www.facebook.com/RRANFremantle" :target "_blank"} 
                                          "Fremantle Refugee Rights Action Network"]
