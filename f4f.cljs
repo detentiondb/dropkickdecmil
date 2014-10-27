@@ -43,13 +43,26 @@
                        ;:image-uri "/img/koththu.jpg"}
                        ]
                       :evening
-                      [{:heading "Rev. Chris Bedding"}
-                       {:heading "Joe Pule"}
-                       ;{:heading "Shyam & Murtaza"}
-                       {:heading "Paul Gioia & Bill Lawrie"}
-                       {:heading "Yara Neto"
-                        #_{:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus, nisl venenatis maximus varius, felis dolor tempus arcu, in lobortis ipsum nulla sit amet nibh. Etiam nulla ligula, gravida id tristique id, vehicula et eros. Donec et tristique nibh."
-                        :image-uri "/img/yaraneto.jpg"}}]
+                      [{:heading "Tara Tiba"
+                        :link "https://www.facebook.com/taratiba.music"
+                        :image-uri "/img/taratiba.jpg"
+                        :description "Praised as one of Iran's most unique new voices by the country's leading ethnomusicologist, Mohammad Reza Darvishi, Tara mesmerises her audience with a soulful voice and an extraordinary vocal technique."}
+                       {:heading "Father Chris Bedding"
+                        :link "https://www.facebook.com/frchrisbedding"
+                        :image-uri "/img/chrisbedding.jpg"
+                        :description "Chris Bedding is a comedian who appears regularly on Perth's comedy stages, as well as around Australia. Alongside Werzel Montague, he is one half of the comedy duo ‘Pirate Church’. A regular guest on 720ABC, Chris is an activist around issues to do with refugee policy and marriage equality. He is Rector of the Parish of Darlington-Bellevue in the Anglican Diocese of Perth."}
+                       {:heading "Joe Pulé"
+                        :description "Joe Pulé is an acoustic styled singer-songwriter who draws from pop, blues’n roots, and indie-folk, to create a soul-igniting musical experience thats like fuel to your fire. Playing with his heart on his sleeve Joe’s songs are uplifting, honest, and take you on a sonic journey thats sure to set a spark alight to all those who listen."
+                        :image-uri "/img/joepule_cropped.jpg"}
+                       {:heading "DJ Cu$$ Dat V!llain"
+                        :image-uri "/img/cusdatvillain.jpg"
+                        :link "https://www.facebook.com/CUSSDATVILLAIN"
+                        :description "CU$$ DAT V!LLAIN began performing funk, hip hop, r'n'b, soul and rock 'n' roll songs from the early age of 7, born into a musical family. At the age of 16 he discovered a talent for freestyle rapping. Combined with a passion for music he started making beats, CU$$ DAT V!LLAIN is currently working on his debut album and collaborations with various Australian Musicians."}
+                       {:heading "Paul Gioia & Bill Lawrie"
+                        :link "http://www.paulgioia.com/"
+                        :image-uri "/img/paulandbill.jpg"
+                        :description "Paul and Bill are both long time, consummate blues performers, well known in Fremantle and WA as solo acts and with top-shelf bands like Tin Dog. Both are concerned about our treatment of refugees and keen to let their blues do the speaking."}
+                       {:heading "... and many more special guests"}]
                       :colours  
                       (into [] 
                             (shuffle [
@@ -97,9 +110,17 @@
                 [:h4.item-headline.pull-right [:span (:subheading activity)]])
               #_(when (not (nil? (:image-uri activity)))
                 [:img.pull-right.activity-thumbnail {:src (:image-uri activity)}])]
+             [:div.artist-text.event-text 
               (when (not (nil? (:description activity))) 
-                [:div.artist-text.event-text [:p (:description activity)]]
-                )]))))
+                (if (nil? (:image-uri activity)) 
+                  [:div.col-xs-12.col-sm-12.col-md-12.col-lg-12 [:p (:description activity)]
+                    (when (not (nil? (:link activity)))
+                      [:p [:a {:href (:link activity)} (str (:link activity))]])]
+                  [:div.row
+                   [:div.col-xs-6.col-sm-6.col-md-6.col-lg-6 [:img.activity-thumbnail {:src (:image-uri activity)}]]
+                   [:div.col-xs-6.col-sm-6.col-md-6.col-lg-6 [:p (:description activity)]
+                    (when (not (nil? (:link activity)))
+                      [:p [:a {:href (:link activity)} (str (:link activity))]])]]))]]))))
 
 #_(defn activity-view [activity owner]
   (reify
@@ -114,7 +135,7 @@
                 [:h4 [:span (:subheading activity)]])
               (when (not (nil? (:image-uri activity)))
                 [:img.pull-right.activity-thumbnail {:src (:image-uri activity)}])
-              (when (not (nil? (:description activity))) [:p (:description activity)])]]))))
+              (when (not (nil? (:description activity))) (:description activity))]]))))
 
 (defn vote-button-id [unique-id]
   (str "vote-button-" unique-id))
