@@ -190,7 +190,7 @@
     om/IRender
     (render [_]
       (html [:div.row.event
-             [:div [:h2 "hiphop freestyle • music • comedy show" [:span.hidden-md.hidden-sm.hidden-xs.pull-right "from 6:30PM"]]]
+             [:div [:h2 "music • political comedy • freestyle hip hop • dance" [:span.hidden-md.hidden-sm.hidden-xs.pull-right "from 6:30PM"]]]
              (om/build-all activity-view (map #(assoc %1 :colour %2) 
                                               (:evening app)
                                               (cycle (:colours app))))]))))
@@ -233,9 +233,9 @@
                 [:div {:style {:align "center"}}
                  [:dl.dl-horizontal
                   [:dt "2PM"]
-                  [:dd "food, workshops, collaboration, lawn bowls, music"]
+                  [:dd "food, collaborative workshops, lawn bowls, music"]
                   [:dt "6:30PM"]
-                  [:dd "music, comedy performances and speakers"]]]
+                  [:dd "music, freestyle hip hop, dance and political comedy"]]]
                 [:p [:h4.headline "Join us for an afternoon of social education and collaboration, leading into an evening of insightful comedy and inspiring music as we come together to build a creative local movement for social and political change."]]
                 [:p [:h4.headline "The #freo4freedom event is dedicated to promoting the cause of refugee rights in Australia. We're working towards the end of mandatory detention and offshore processing of asylum seekers."]]
                 [:div.row
@@ -244,7 +244,7 @@
                   [:h4 "Pro-refugee workshops, meetings and activities conducted in a positive, family friendly environment. See below for what's in store!"]]
                  [:div.col-lg-6
                   [:h2.red-text "#freo4freedom » evening"]
-                  [:h4 "Performances from Fremantle and Perth musicians in support of refugee rights, along with pro-refugee speakers and stand-up comedy."]]]
+                  [:h4 "Performances from Fremantle and Perth musicians in support of refugee rights  and political stand-up comedy."]]]
                 [:div.row
                  [:div.col-lg-12 [:h4 [:span.orange-text "no crime to seek asylum"] [:span.pull-right "Email " [:a {:href "mailto:freo@rran.org"} "Freo RRAN " [:span.glyphicon.glyphicon-envelope]] " • Join " [:a {:href "https://www.facebook.com/events/944366122246547/"} "#freo4freedom on Facebook " [:img {:style {:height "20px" :vertical-align "baseline"} :src "/img/fblogo.png"}]]]]]]
                 ]]]]))))
