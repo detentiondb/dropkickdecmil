@@ -40,6 +40,9 @@ p a, ul a {
 	font-weight: bold;
 	text-align: justify; 
 }
+.panel-title > a {
+	color: #895b94;
+}
 .custom-outset {
 	line-height: 0px; 
 }
