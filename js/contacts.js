@@ -1,5 +1,5 @@
 $('td.twitter').each(function (i, contact) {
-	var twitterUrl = 'http://twitter.com/' + contact.innerHTML.substring(1);
+	var twitterUrl = 'https://twitter.com/' + contact.innerHTML.substring(1);
 	var contactLink = '<a href="' + twitterUrl + '" target="_blank">' + contact.innerHTML + '</a>';
 	contact.innerHTML = contactLink;
 });
