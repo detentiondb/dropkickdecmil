@@ -18,7 +18,7 @@
 
   :aws {:access-key ~(System/getenv "AWS_ACCESS_KEY") 
         :secret-key ~(System/getenv "AWS_SECRET_KEY") 
-        :s3-static-deploy {:bucket "hestadivest.net" 
+        :s3-static-deploy {:bucket "dropkickdecmil.net" 
                            :local-root "site"}}
 
   :min-lein-version "2.5.0"
