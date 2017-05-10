@@ -1,4 +1,4 @@
-(defproject f4f "0.1.0-SNAPSHOT"
+(defproject dropkickdecmil "0.1.0-SNAPSHOT"
   :source-paths ["."]
 
   :eval-in :leiningen
